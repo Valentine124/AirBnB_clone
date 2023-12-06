@@ -1,6 +1,6 @@
 # AirBnB clone
 
-![Hbnb](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231205%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231205T214926Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ba160e98823fec848676dafe0f4d81f400aac3c0a6b9087fc022def26c73befb)
+<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231205%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231205T214926Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ba160e98823fec848676dafe0f4d81f400aac3c0a6b9087fc022def26c73befb">
 
 ### The Hbnb is a clone of the AirBnB web application. This application implements some but not all the features of the AirBnB website
 
