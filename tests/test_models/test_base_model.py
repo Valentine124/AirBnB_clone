@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 import unittest
+from datetime import datetime
 from models.base_model import BaseModel
-
+import time
 
 class TestBaseModel(unittest.TestCase):
     def setUp(self):
@@ -20,6 +21,12 @@ class TestBaseModel(unittest.TestCase):
         a = BaseModel()
         b = BaseModel()
         self.assertNotEqual(a.id, b.id)
+
+    def test_created__at(self):
+        a = BaseModel()
+        time.sleep(0.05)
+        b = BaseModel()
+        self.assertLess(a.created_at, b.created_at)
 
 
 if __name__ == '__main__':

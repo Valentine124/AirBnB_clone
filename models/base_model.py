@@ -8,6 +8,7 @@ inherit from
 
 
 import uuid
+import datetime as dt
 from datetime import datetime
 
 
@@ -26,10 +27,22 @@ class BaseModel:
             it will be updated every time you change your object
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         The class initializer
         """
+
+        if kwargs and len(kwargs):
+
+            for key, value in kwargs.items():
+                if key == '__class__':
+                    continue
+
+                if key in ['created_at', 'updated_at']:
+                    value = dt.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+
+                setattr(self, key, value)
+            return
 
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()

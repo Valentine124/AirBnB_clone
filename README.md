@@ -66,6 +66,11 @@ EOF  help  quit
 $
 ```
 
+#### run test
+```
+python3 -m unittest discover tests
+```
+
 ## Final Product
 <img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/fe2e3e7701dec72ce612472dab9bb55fe0e9f6d4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231206T052759Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=fbacb526792473e1e3e883e91997b857d9467acb7a1196a92b58980464b63adc">
 
