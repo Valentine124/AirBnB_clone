@@ -8,12 +8,14 @@ class TestBaseModel(unittest.TestCase):
     def setUp(self):
         self.calc = BaseModel()
 
-    def testTypes(self):
+    def test_types(self):
         ''' to test type of all instanse '''
         self.assertEqual(BaseModel, type(self.calc))
         self.assertEqual(str, type(self.calc.id))
+        self.assertEqual(datetime, type(self.calc.created_at))
+        self.assertEqual(datetime, type(self.calc.updated_at))
 
-    def testId(self):
+    def test_id(self):
         # test uniq id
         a = BaseModel()
         b = BaseModel()
