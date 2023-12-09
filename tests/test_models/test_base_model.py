@@ -5,6 +5,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 import time
 
+
 class TestBaseModel(unittest.TestCase):
     def setUp(self):
         self.calc = BaseModel()
@@ -35,7 +36,7 @@ class TestBaseModel(unittest.TestCase):
         time.sleep(0.05)
         a.save()
         self.assertLess(t1, a.updated_at)
-    
+
     def test_model_to_dic(self):
         my_model = BaseModel()
         my_model.name = "My_First_Model"
@@ -43,9 +44,11 @@ class TestBaseModel(unittest.TestCase):
         my_model_json = my_model.to_dict()
         for key in my_model_json.keys():
             if key == '__class__':
-                self.assertEqual(my_model_json[key], my_model.__class__.__name__)
+                self.assertEqual(my_model_json[key],
+                                 my_model.__class__.__name__)
             elif key in ['created_at', 'updated_at']:
-                s1 = str(my_model.__dict__[key].strftime("%Y-%m-%dT%H:%M:%S.%f"))
+                s1 = str(my_model.__dict__[key]
+                         .strftime("%Y-%m-%dT%H:%M:%S.%f"))
                 self.assertEqual(s1, my_model_json[key])
             else:
                 self.assertEqual(my_model_json[key], my_model.__dict__[key])
@@ -62,8 +65,8 @@ class TestBaseModel(unittest.TestCase):
 
         for key in my_model_json.keys():
             if key not in ['__class__']:
-                self.assertEqual(my_model.__dict__[key], my_new_model.__dict__[key])
-                
+                self.assertEqual(my_model.__dict__[key],
+                                 my_new_model.__dict__[key])
 
 
 if __name__ == '__main__':
