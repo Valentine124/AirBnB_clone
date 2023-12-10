@@ -8,8 +8,13 @@ class for the application storage
 
 import json
 import os.path
-from models.engine.base_model_encoder import encode
-
+from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.amenity import Amenity
 
 class FileStorage:
     """
@@ -25,6 +30,7 @@ class FileStorage:
 
     __file_path = 'file.json'
     __objects = {}
+
 
     def all(self):
         """
@@ -48,18 +54,27 @@ class FileStorage:
         """
         Serializes `__objects` to JSON file
         """
+        lit = FileStorage.__objects
+
+        for key, val in lit.items():
+            lit[key] = val.to_dict()
 
         with open(FileStorage.__file_path, 'w') as fp:
-            json.dump(FileStorage.__objects, fp, default=encode)
+
+            json.dump(lit, fp)
 
     def reload(self):
         """
         Deserializes the JSON file to __objects
         if `__file_path` exist
         """
-
         file_exist = os.path.exists(FileStorage.__file_path)
 
         if file_exist:
-            with open(FileStorage.__file_path, 'r') as fp:
-                json.load(fp)
+            with open(FileStorage.__file_path) as fp:
+                data = json.load(fp)
+
+                for key, val in data.items():
+                    s = val['__class__']
+                    obj = eval(s)(**val)
+                    FileStorage.__objects[key] = obj

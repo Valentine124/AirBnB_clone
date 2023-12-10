@@ -8,8 +8,8 @@ inherit from
 
 
 import uuid
+import models
 from datetime import datetime
-from models import storage
 
 
 class BaseModel:
@@ -48,10 +48,10 @@ class BaseModel:
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-        all = storage.all()
+        all = models.storage.all()
 
         if self not in all.values():
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """
@@ -67,7 +67,7 @@ class BaseModel:
         """
 
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """
