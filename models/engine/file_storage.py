@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """
 This module contains the `FileStorage
@@ -48,19 +48,17 @@ class FileStorage:
             obj:<class name> - The object to save
         """
         if obj:
-            self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
+            s = f'{obj.__class__.__name__}.{obj.id}'
+            self.__objects[s] = obj
 
     def save(self):
         """
         Serializes `__objects` to JSON file
         """
-        res = {}
-        lit = self.__objects
-        for key, val in lit.items():
-            res[key] = val.to_dict()
-
         with open(self.__file_path, 'w') as fp:
-
+            res = {}
+            for key, val in self.__objects.items():
+                res[key] = val.to_dict()
             json.dump(res, fp)
 
     def reload(self):
