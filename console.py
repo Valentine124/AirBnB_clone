@@ -2,24 +2,35 @@
 
 import cmd
 
+
 class HBNBCommand(cmd.Cmd):
-    prompt = '(hbnb)'
+    """AIRBNB command interpreter.
+
+    Attributes:
+        prompt (str): command prompt.
+    """
+
+    prompt = '(hbnb) '
 
     def emptyline(self):
         pass
 
     def do_quit(self, arg):
-        return (True)
+        """Quit command to exit the program"""
+        return True
 
     def help_quit(self):
-        print("Quit command to exit the program\n")
+        """help doc for quit"""
+        print("Quit command to exit the program")
 
     def do_EOF(self, arg):
+        """handle EOF to exit command"""
         print()
-        return (True)
+        return True
 
     def help_EOF(self):
-        print("Quit command to exit the program\n")
+        """help doc for EOF"""
+        print("Quit command to exit the program")
 
 
 if __name__ == '__main__':
