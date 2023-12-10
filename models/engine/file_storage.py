@@ -16,6 +16,7 @@ from models.review import Review
 from models.state import State
 from models.amenity import Amenity
 
+
 class FileStorage:
     """
     This is the blueprint of the
@@ -30,7 +31,6 @@ class FileStorage:
 
     __file_path = 'file.json'
     __objects = {}
-
 
     def all(self):
         """
@@ -47,8 +47,8 @@ class FileStorage:
         Args:
             obj:<class name> - The object to save
         """
-
-        self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
+        if obj:
+            self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
 
     def save(self):
         """
@@ -63,7 +63,6 @@ class FileStorage:
 
             json.dump(res, fp)
 
-
     def reload(self):
         """
         Deserializes the JSON file to __objects
@@ -73,9 +72,9 @@ class FileStorage:
             with open(self.__file_path, 'r') as fp:
                 data = json.load(fp)
 
-            for key, val in data.items():        
+            for key, val in data.items():
                 s = val['__class__']
                 obj = eval(s)(**val)
                 self.__objects[key] = obj
-        except:
+        except FileNotFoundError:
             pass
