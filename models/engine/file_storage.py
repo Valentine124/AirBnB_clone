@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 
-"""
-This module contains the `FileStorage
-class for the application storage
-"""
+""" This module contains the `FileStorage class for the application storage """
 
 
 import json
