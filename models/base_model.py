@@ -8,8 +8,8 @@ inherit from
 
 
 import uuid
-import datetime as dt
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -39,7 +39,7 @@ class BaseModel:
                     continue
 
                 if key in ['created_at', 'updated_at']:
-                    value = dt.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
 
                 setattr(self, key, value)
             return
@@ -47,6 +47,11 @@ class BaseModel:
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
+
+        all = storage.all()
+
+        if self not in all.values():
+            storage.new(self)
 
     def __str__(self):
         """
@@ -62,6 +67,7 @@ class BaseModel:
         """
 
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """
