@@ -73,9 +73,9 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as fp:
                 data = json.load(fp)
 
-                for key, val in data.items():
-                    s = val['__class__']
-                    obj = eval(s)(**val)
-                    self.new(obj)
+            for key, val in data.items():        
+                s = val['__class__']
+                obj = eval(s)(**val)
+                self.__objects[key] = obj
         except:
             pass
