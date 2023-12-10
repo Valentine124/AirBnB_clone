@@ -62,6 +62,7 @@ class FileStorage:
             json.dump(res, fp)
 
     def reload(self):
+        return
         """
         Deserializes the JSON file to __objects
         if `__file_path` exist
