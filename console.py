@@ -5,12 +5,15 @@
 import cmd
 import re
 from shlex import split
+from models import storage
 from models.base_model import BaseModel
 
-MyClasses = {'BaseModel':BaseModel}
+MyClasses = {'BaseModel': BaseModel}
+
 
 def sprate(arg=""):
-    return [i.strip(",") for i in split(arg)]
+    return arg.split()
+
 
 class HBNBCommand(cmd.Cmd):
     """AIRBNB command interpreter.
@@ -35,16 +38,34 @@ class HBNBCommand(cmd.Cmd):
 
     def do_creat(self, arg):
         """Creates a new instance of BaseModel"""
-        args = arg.split()
+        args = sprate(arg)
 
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in MyClasses:
             print("** class doesn't exist **")
         else:
-            new = MyClasses[args[0]]()
+            new = eval(args[0])()
             new.save()
             print(new.id)
+
+    def do_show(self, arg):
+        """Prints the string representation of an instance."""
+        args = sprate(arg)
+
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in MyClasses:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        else:
+            objects = storage.all()
+            s = "{}.{}".format(args[0], args[1])
+            if s not in objects:
+                print("** no instance found **")
+            else:
+                print(objects[s])
 
 
 if __name__ == '__main__':
