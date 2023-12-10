@@ -7,6 +7,8 @@ for the base model class
 """
 
 from models.base_model import BaseModel
+
+
 def encode(obj):
     """
     Encoder for the base model
@@ -18,4 +20,3 @@ def encode(obj):
 
     if isinstance(obj, BaseModel):
         return obj.__dict__
-

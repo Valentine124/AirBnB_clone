@@ -19,7 +19,8 @@ class FileStorage:
 
     Attributes:
         __file_path:string - path to json file
-        __objects:dictionary - empty but will store all objects by <class name>.id
+        __objects:dictionary -
+        empty but will store all objects by <class name>.id
     """
 
     __file_path = 'file.json'
