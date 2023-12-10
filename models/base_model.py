@@ -48,11 +48,6 @@ class BaseModel:
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
 
-        all = models.storage.all()
-
-        if self not in all.values():
-            models.storage.new(self)
-
     def __str__(self):
         """
         Overriding the str method
@@ -67,6 +62,7 @@ class BaseModel:
         """
 
         self.updated_at = datetime.now()
+        models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
