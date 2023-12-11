@@ -5,7 +5,6 @@
 import cmd
 import re
 from shlex import split
-from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.city import City
@@ -17,7 +16,7 @@ from datetime import datetime
 
 MyClasses = ['BaseModel', 'User', 'Place', 'State',
              'City', 'Amenity', 'Review']
-
+storage = []
 
 def sprate(arg=""):
     return arg.split()
