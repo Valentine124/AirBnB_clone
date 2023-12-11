@@ -16,7 +16,6 @@ from datetime import datetime
 
 MyClasses = ['BaseModel', 'User', 'Place', 'State',
              'City', 'Amenity', 'Review']
-storage = []
 
 def sprate(arg=""):
     return arg.split()
@@ -67,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            objects = storage.all()
+            objects = {}
             s = "{}.{}".format(args[0], args[1])
             if s not in objects:
                 print("** no instance found **")
@@ -85,13 +84,12 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            objects = storage.all()
+            objects = {}
             s = "{}.{}".format(args[0], args[1])
             if s not in objects:
                 print("** no instance found **")
             else:
                 del objects[s]
-                storage.save()
 
     def do_all(self, arg):
         """all."""
@@ -105,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
                 return 0
             opj = [args[0]]
 
-        for m in storage.all().values():
+        for m in {}.values():
             if m.__class__.__name__ in opj:
                 res.append(m.__str__())
         print(res)
@@ -121,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
                 return 0
             opj = [args[0]]
 
-        for m in storage.all().values():
+        for m in {}.values():
             if m.__class__.__name__ in opj:
                 res.append(m.__str__())
         print(res)
@@ -140,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return 0
 
-        objects = storage.all()
+        objects = {}
         s = "{}.{}".format(args[0], args[1])
         if s not in objects:
             print("** no instance found **")
@@ -157,7 +155,6 @@ class HBNBCommand(cmd.Cmd):
 
         X.__dict__[args[2]] = args[3]
         X.updated_at = datetime.utcnow()
-        storage.save()
 
 
 if __name__ == '__main__':
