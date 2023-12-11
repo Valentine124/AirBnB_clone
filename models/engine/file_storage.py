@@ -9,6 +9,7 @@ class for the application storage
 import json
 import os.path
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
