@@ -27,7 +27,7 @@ class FileStorage:
 
     __file_path = 'file.json'
     __objects = {}
-    req = 1
+    req = 0
 
     def all(self):
         """
