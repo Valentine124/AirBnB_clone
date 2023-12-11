@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" init file for storage"""
+"""__init__ model intlization"""
 from models.engine.file_storage import FileStorage
 
 

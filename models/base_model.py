@@ -62,6 +62,8 @@ class BaseModel:
         """
 
         self.updated_at = datetime.now()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """
@@ -73,7 +75,7 @@ class BaseModel:
         my_dict = {}
         dict = self.__dict__
 
-        my_dict['__class__'] = self.__class__.__name__
+        my_dict['__class__'] = f'{self.__class__.__name__}'
 
         for key, value in dict.items():
             if key == 'created_at' or key == 'updated_at':
