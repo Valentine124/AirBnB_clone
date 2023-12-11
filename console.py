@@ -5,6 +5,7 @@
 import cmd
 import re
 from shlex import split
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.city import City
@@ -67,7 +68,6 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            return
             objects = storage.all()
             s = "{}.{}".format(args[0], args[1])
             if s not in objects:
@@ -86,7 +86,6 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            return
             objects = storage.all()
             s = "{}.{}".format(args[0], args[1])
             if s not in objects:
@@ -106,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return 0
             opj = [args[0]]
-        return
+
         for m in storage.all().values():
             if m.__class__.__name__ in opj:
                 res.append(m.__str__())
@@ -122,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return 0
             opj = [args[0]]
-        return
+
         for m in storage.all().values():
             if m.__class__.__name__ in opj:
                 res.append(m.__str__())
@@ -141,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
             return 0
-        return
+
         objects = storage.all()
         s = "{}.{}".format(args[0], args[1])
         if s not in objects:
@@ -159,7 +158,7 @@ class HBNBCommand(cmd.Cmd):
 
         X.__dict__[args[2]] = args[3]
         X.updated_at = datetime.utcnow()
-        # storage.save()
+        storage.save()
 
 
 if __name__ == '__main__':
