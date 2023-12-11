@@ -5,11 +5,11 @@
 import cmd
 import re
 from shlex import split
+from models import storage
 from models.base_model import BaseModel
 from datetime import datetime
 
-MyClasses = ['BaseModel', 'User', 'Place', 'State',
-             'City', 'Amenity', 'Review']
+MyClasses = ['BaseModel']
 
 
 def sprate(arg=""):
@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            objects = {}
+            objects = storage.all()
             s = "{}.{}".format(args[0], args[1])
             if s not in objects:
                 print("** no instance found **")
@@ -79,12 +79,13 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 1:
             print("** instance id missing **")
         else:
-            objects = {}
+            objects = storage.all()
             s = "{}.{}".format(args[0], args[1])
             if s not in objects:
                 print("** no instance found **")
             else:
                 del objects[s]
+                storage.save()
 
     def do_all(self, arg):
         """all."""
@@ -98,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
                 return 0
             opj = [args[0]]
 
-        for m in {}.values():
+        for m in storage.all().values():
             if m.__class__.__name__ in opj:
                 res.append(m.__str__())
         print(res)
@@ -114,7 +115,7 @@ class HBNBCommand(cmd.Cmd):
                 return 0
             opj = [args[0]]
 
-        for m in {}.values():
+        for m in storage.all().values():
             if m.__class__.__name__ in opj:
                 res.append(m.__str__())
         print(res)
@@ -133,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return 0
 
-        objects = {}
+        objects = storage.all()
         s = "{}.{}".format(args[0], args[1])
         if s not in objects:
             print("** no instance found **")
@@ -150,6 +151,7 @@ class HBNBCommand(cmd.Cmd):
 
         X.__dict__[args[2]] = args[3]
         X.updated_at = datetime.utcnow()
+        storage.save()
 
 
 if __name__ == '__main__':
