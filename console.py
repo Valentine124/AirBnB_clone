@@ -17,6 +17,7 @@ from datetime import datetime
 MyClasses = ['BaseModel', 'User', 'Place', 'State',
              'City', 'Amenity', 'Review']
 
+
 def sprate(arg=""):
     return arg.split()
 
