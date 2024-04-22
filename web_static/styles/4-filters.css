@@ -1,13 +1,14 @@
 /*
     ==================================
-    Header Styles
+    Filters Style
     ==================================
 */
 
-.header {
+.filters {
     background: white;
     height: 70px;
     width: 100%;
     position: relative;
-    border-bottom: 1px solid #CCCCCC;  
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
 }

@@ -1,0 +1,45 @@
+/*
+    ==================================
+    Filters Style
+    ==================================
+*/
+
+.filters {
+    background: white;
+    height: 70px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+}
+
+/*
+    ====================================
+    Location and Amenities
+    ====================================
+*/
+
+.container .filters .locations,
+.container .filters .amenities {
+    height: 100%;
+    width: 25%;
+    margin: 0 0 40px 40px;
+    display: inline-block;
+}
+
+.container .filters .locations {
+    border-right: 1px solid #DDDDDD;
+}
+
+.container .filters h3 {
+    margin-top: 20px;
+    line-height: 10px;
+    font-weight: 600;
+}
+
+.container .filters h4 {
+    margin-top: 5px;
+    line-height: 1px;
+    font-weight: 400;
+    font-size: 14px;
+}

@@ -1,0 +1,61 @@
+/*
+    ======================================
+    Page General Styling
+    ======================================
+*/
+
+body {
+    margin: 0px;
+    padding: 0px;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+    background: url("../images/logo.png") center no-repeat;
+    background-size: contain;
+}
+
+/*
+    =======================================
+    Filter Container
+    =======================================
+*/
+
+div.container {
+    margin: 0 auto;
+    max-width: 1000px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*
+    =======================================
+    Buttons
+    =======================================
+*/
+
+.container .filters button {
+    font-size: 18px;
+    background: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.container .filters button:hover {
+    opacity: 90%;
+}

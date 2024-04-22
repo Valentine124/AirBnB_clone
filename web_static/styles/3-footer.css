@@ -1,0 +1,26 @@
+/*
+    ====================================
+    Footer Styles
+    ====================================
+*/
+
+.footer {
+    margin: 0px;
+    padding: 0px;
+    background: white;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #CCCCCC;
+    height: 60px;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
