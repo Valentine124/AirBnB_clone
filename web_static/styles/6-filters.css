@@ -1,0 +1,105 @@
+/*
+    =================================
+    Clear fix
+    =================================
+*/
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/*
+    ==================================
+    Filters Style
+    ==================================
+*/
+
+.filters {
+    background: white;
+    height: 70px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+}
+
+/*
+    ====================================
+    Location and Amenities
+    ====================================
+*/
+
+.container .filters .locations,
+.container .filters .amenities {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+.container .filters .text-group {
+    line-height: 8px;
+    margin-left: 30px;
+}
+
+.container .filters .locations {
+    border-right: 1px solid #DDDDDD;
+}
+
+.container .filters h3 {
+    font-weight: 600;
+}
+
+.container .filters h4 {
+    line-height: 0px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container .filters .popover {
+    background: #FAFAFA;
+    width: 100%;
+    margin-top: 27px;
+    padding: 0px;
+    padding-bottom: 20px;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    list-style-type: none;
+    display: none;
+}
+
+.container .filters .popover ul,
+.container .filters .popover .amenity-items {
+    padding: 0px;
+    line-height: 20px;
+    padding-left: 30px;
+    list-style-type: none;
+}
+
+.container .filters .popover .amenity-items {
+    padding-top: 20px;
+}
+
+.container .filters .popover h2 {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.container .filters .locations:hover 
+.popover {
+    display: block;
+}
+
+.container .filters .amenities:hover
+.popover {
+    display: block;
+}
